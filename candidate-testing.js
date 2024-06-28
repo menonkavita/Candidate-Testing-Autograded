@@ -63,26 +63,39 @@ function gradeQuiz(candidateAnswers) {
     
     console.log(`\n                     ----------- RESULTS of the QUIZ -----------\n 
                 Question 1: ${questions[0]} 
-                Your Answer:  ${candidateAnswers[0]}. 
+                Your Answer:  ${candidateAnswers[0]} 
                 Correct Answer: ${correctAnswers[0]}\n
                 Question 2: ${questions[1]}  
-                Your Answer:  ${candidateAnswers[1]}. 
+                Your Answer:  ${candidateAnswers[1]} 
                 Correct Answer: ${correctAnswers[1]}\n
                 Question 3: ${questions[2]}  
-                Your Answer:  ${candidateAnswers[2]}. 
+                Your Answer:  ${candidateAnswers[2]} 
                 Correct Answer: ${correctAnswers[2]}\n
                 Question 4: ${questions[3]}  
-                Your Answer:  ${candidateAnswers[3]}. 
+                Your Answer:  ${candidateAnswers[3]} 
                 Correct Answer: ${correctAnswers[3]}\n
                 Question 5: ${questions[4]}  
-                Your Answer:  ${candidateAnswers[4]}. 
+                Your Answer:  ${candidateAnswers[4]}\n 
                 Correct Answer: ${correctAnswers[4]}
                     ----------- ----------- -----------`);
 
       
+                 
+    let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+    let numCorrectAnswers = 0;
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-       //candidateAnswers[i] = candidateAnswers[i].toLowerCase()                               // Task 3 Code - Converting to Lowercase
+    for (let i = 0; i < correctAnswers.length; i++){
+        let strCorrect = correctAnswers[i]
+        let strCandidate = candidateAnswers[i]
+
+        if(strCorrect.toLowerCase() === strCandidate.toLowerCase()){                    // Task 3 Code - Converting to Lowercase
+            numCorrectAnswers++;    
+        }
+    }
+
+    // (Number of Correct Answers) / (Number of Quiz Questions) * 100
+    grade = (numCorrectAnswers / questions.length) * 100
+    //console.log("[gradeQuiz()]: Value of grade is ", grade)
 
   return grade;
 }
@@ -94,7 +107,16 @@ function runProgram() {
   console.log("Hola!", userName);
   
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  //gradeQuiz(this.candidateAnswers);
+
+  score = gradeQuiz(candidateAnswers);
+        if(score >= 80){
+            console.log(`Congratulations! You scored ${score} %. You have passed the test.`)
+        }
+        else{
+            console.log(`Sorry! You scored ${score} %. Please try again.`)
+        }
+           
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
