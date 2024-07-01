@@ -38,7 +38,6 @@ function askQuestion() {
     candidateAnswers.push(input.question(questions[i]))
   }
 
-//console.log("\n[askQuestion] Candidate Answers after accepting answers: ", candidateAnswers,"\n")     // Shows user answers while debuggin
 return candidateAnswers;
 
 }
@@ -50,16 +49,16 @@ function gradeQuiz(candidateAnswers) {
   /* correctAnswer = correctAnswer.toLowerCase()                                 // Task 1 Code - Single Question
   candidateAnswer = candidateAnswer.toLowerCase()
          
-  if(candidateAnswer === correctAnswer){
+  if(candidateAnswer === correctAnswer){                                        // Task 1 Code - Single Question
           console.log("That's correct!")
   }
   else{
           console.log("Sorry, that's incorrect! Please try again.")
   } */
 
+          
 
    // Task 2 Code - Multiple Questions
-
     
     console.log(`\n                     ----------- RESULTS of the QUIZ -----------\n 
                 Question 1: ${questions[0]} 
@@ -75,7 +74,7 @@ function gradeQuiz(candidateAnswers) {
                 Your Answer:  ${candidateAnswers[3]} 
                 Correct Answer: ${correctAnswers[3]}\n
                 Question 5: ${questions[4]}  
-                Your Answer:  ${candidateAnswers[4]}\n 
+                Your Answer:  ${candidateAnswers[4]} 
                 Correct Answer: ${correctAnswers[4]}
                     ----------- ----------- -----------`);
 
@@ -95,9 +94,8 @@ function gradeQuiz(candidateAnswers) {
 
     // (Number of Correct Answers) / (Number of Quiz Questions) * 100
     grade = (numCorrectAnswers / questions.length) * 100
-    //console.log("[gradeQuiz()]: Value of grade is ", grade)
-
-  return grade;
+   
+  return grade;                                                                        // returning 'grade' to runProgram()
 }
 
 function runProgram() {
@@ -107,14 +105,14 @@ function runProgram() {
   console.log("Hola!", userName);
   
   askQuestion();
-  //gradeQuiz(this.candidateAnswers);
+  //gradeQuiz(this.candidateAnswers);                                   // Task 1 Code
 
-  score = gradeQuiz(candidateAnswers);
+  let score = gradeQuiz(this.candidateAnswers);                         // Conveying to user if they passed or failed based on grade received.
         if(score >= 80){
-            console.log(`Congratulations! You scored ${score} %. You have passed the test.`)
+            console.log(`\nCongratulations! You scored ${score} %. You have passed the test.`)
         }
         else{
-            console.log(`Sorry! You scored ${score} %. Please try again.`)
+            console.log(`\nSorry! You scored ${score} %. Please try again.`)
         }
            
 }
