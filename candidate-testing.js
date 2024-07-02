@@ -109,10 +109,16 @@ function runProgram() {
 
   let score = gradeQuiz(this.candidateAnswers);                         // Conveying to user if they passed or failed based on grade received.
         if(score >= 80){
-            console.log(`\nCongratulations! You scored ${score} %. You have passed the test.`)
+            console.log(`\nCongratulations! You scored ${score} %. You have passed the test.\n`)
+            console.log(`>>> Overall Grade: ${score * 0.05}  out of 5 responses correct <<<`)
+            console.log(`>>> Status: PASSED <<<`)
+
         }
         else{
-            console.log(`\nSorry! You scored ${score} %. Please try again.`)
+            console.log(`\nSorry! You scored ${score} %. Please try again.\n`)
+            console.log(`>>> Overall Grade: ${score * 0.05}  out of 5 responses correct <<<`)
+            console.log(`>>> Status: FAILED <<<\n`)
+
         }
            
 }
